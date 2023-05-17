@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-image: url('bamboo.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      color: #ff6600; /* Orange color */
+      text-shadow: 2px 2px 4px #000000;
+      text-align: center;
+      margin-top: 20px; /* Add space on top */
+    }
+
+    h2 {
+      color: #00ff00; /* Green color */
+      text-align: center;
+    }
+    
+    .flower-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px; /* Gap between images */
+    }
+    
+    .flower-image {
+      display: block;
+      border: 5px solid #ffffff;
+      border-radius: 10px;
+      box-shadow: 2px 2px 4px #000000;
+      transition: transform 0.3s; /* Add transition effect */
+    }
+    
+    .flower-image:hover {
+      transform: scale(1.1); /* Increase image size on hover */
+    }
+    
+    .flower-image:hover, .flower-image:focus {
+      cursor: pointer; /* Add cursor pointer on hover and focus */
+    }
+    
+    .back-button {
+      text-align: center;
+      margin-top: 10px; /* Add some space between image and button */
+    }
+    
+    .back-button button {
+      font-size: 20px;
+      padding: 15px 30px;
+      background-color: #000000; /* Black color */
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .dropdown select {
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+  <script>
+    function enlargeImage(image) {
+      image.style.width = '500px';
+      image.style.height = '400px';
+      image.onclick = function() {
+        resetImage(this);
+      };
+    }
+    
+    function resetImage(image) {
+      image.style.width = '270px';
+      image.style.height = '270px';
+      image.onclick = function() {
+        enlargeImage(this);
+      };
+    }
+    
+    function onCategoryChange(category) {
+      const container = document.getElementById('flower-container');
+      container.innerHTML = '';
+
+      if (category === 'Party Decor') {
+        const partyImage1 = document.createElement('img');
+        partyImage1.className = 'flower-image';
+        partyImage1.src = 'partydecor.PNG';
+        partyImage1.width = '270';
+        partyImage1.height = '270';
+        partyImage1.onclick = function() {
+          enlargeImage(this);
+        };
+
+        const partyImage2 = document.createElement('img');
+        partyImage2.className = 'flower-image';
+        partyImage2.src = 'partydec.PNG';
+        partyImage2.width = '270';
+        partyImage2.height = '270';
+        partyImage2.onclick = function() {
+          enlargeImage(this);
+        };
+
+        const div1 = document.createElement('div');
+        div1.appendChild(partyImage1);
+        const div2 = document.createElement('div');
+        div2.appendChild(partyImage2);
+
+        container.appendChild(div1);
+        container.appendChild(div2);
+      }
+else if (category === 'Balloons') {
+const balloonImage = document.createElement('img');
+balloonImage.className = 'flower-image';
+balloonImage.src = 'ballooncool.PNG';
+balloonImage.width = '270';
+balloonImage.height = '270';
+balloonImage.onclick = function() {
+enlargeImage(this);
+};
+const div = document.createElement('div');
+    div.appendChild(balloonImage);
+
+    container.appendChild(div);
+  } else if (category === 'Baskets') {
+    const basketImage = document.createElement('img');
+    basketImage.className = 'flower-image';
+    basketImage.src = 'thisisgood.PNG';
+    basketImage.width = '270';
+    basketImage.height = '270';
+    basketImage.onclick = function() {
+      enlargeImage(this);
+    };
+
+    const div = document.createElement('div');
+    div.appendChild(basketImage);
+
+    container.appendChild(div);
+  } else if (category === 'Weddings') {
+    const weddingImage = document.createElement('img');
+    weddingImage.className = 'flower-image';
+    weddingImage.src = 'weddingimage.PNG';
+    weddingImage.width = '270';
+    weddingImage.height = '270';
+    weddingImage.onclick = function() {
+      enlargeImage(this);
+    };
+
+    const div = document.createElement('div');
+    div.appendChild(weddingImage);
+
+    container.appendChild(div);
+  } else if (category === 'Everyday Flowers') {
+    const everydayImage = document.createElement('img');
+    everydayImage.className = 'flower-image';
+    everydayImage.src = 'flower.PNG';
+    everydayImage.width = '270';
+    everydayImage.height = '270';
+    everydayImage.onclick = function() {
+      enlargeImage(this);
+    };
+
+    const div = document.createElement('div');
+    div.appendChild(everydayImage);
+
+    container.appendChild(div);
+  }
+
+  const categoryTitle = document.getElementById('category-title');
+  categoryTitle.textContent = category;
+}
+  </script>
+</head>
+<body>
+  <h1>
+    <a href="https://www.instagram.com/fortuneflowers/" style="text-decoration: none; color: #ff6600;" target="_blank">
+      Fortune Flowers
+    </a>
+    <span style="color: #00ff00;">(718) 645-9594</span>
+    <span onclick="window.open('https://www.google.com/maps/dir//706+Kings+Hwy,+Brooklyn,+NY+11223/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x89c244edd8101dc9:0xbd8da27c57fdcce8?sa=X&ved=2ahUKEwjl-KjW8Pr-AhVAD1kFHSxDDfsQwwV6BAgTEAQ')" style="cursor: pointer; color: #00ff00; text-decoration: underline;">706 Kings Highway</span>
+  </h1>
+  <div class="dropdown">
+    <select onchange="onCategoryChange(this.value)">
+      <option value="" selected disabled>Select a category</option>
+      <option value="Party Decor">Party Decor</option>
+      <option value="Weddings">Weddings</option>
+<option value="Balloons">Balloons</option>
+<option value="Everyday Flowers">Everyday Flowers</option>
+<option value="Funeral">Funeral</option>
+<option value="Baskets">Baskets</option>
+</select>
+
+  </div>
+  <h2 id="category-title">Welcome! Please select a category from the dropdown menu.</h2>
+  <div class="flower-container" id="flower-container">
+    <!-- Images will be dynamically added based on the selected category -->
+  </div>
+</body>
+</html>

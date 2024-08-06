@@ -169,6 +169,18 @@ const div = document.createElement('div');
     everydayImage.onclick = function() {
       enlargeImage(this);
     };
+    
+        container.appendChild(div);
+  } else if (category === 'Everyday Flowers') {
+    const everydayImage = document.createElement('img');
+    everydayImage.className = 'flower-image';
+    everydayImage.src = 'goodgg.PNG';
+    everydayImage.width = '270';
+    everydayImage.height = '270';
+    everydayImage.onclick = function() {
+      enlargeImage(this);
+    };
+
 
     const div = document.createElement('div');
     div.appendChild(everydayImage);
